@@ -16,12 +16,14 @@ echo "Triggering the configuration update of agents using the following tags: '$
 
 if RESPONSE=$(curl \
     --location \
+    --silent \
     --fail \
     --request POST \
     --header "authorization: apiToken ${INSTANA_API_KEY}" \
+    -w "%{http_code}" \
     "${INSTANA_API_ENDPOINT}/api/host-agent/configuration/update?query=entity.tag:${INSTANA_AGENT_TAG}")
 then
-    echo "The configuration update succeeded: ${RESPONSE}"
+    echo "The configuration update succeeded"
 else
     echo "The configuration update failed: ${RESPONSE}"
     exit 1
