@@ -1,0 +1,22 @@
+# action.yml
+name: 'Instana GitOps: Trigger agent updates by tag'
+description: 'Trigger the GitOps configuration management update by all host agents with a particular tag'
+branding:
+  icon: bookmark
+  color: blue
+inputs:
+  apiEndpoint:
+    description: 'The API endpoint of your Instana backend, e.g., https://my-awesome.instana.io . Notice that, for self-managed Instana backends, you will likely need to add the port, e.g., 1444.'
+    required: true
+  apiKey:
+    description: 'The API token to use for authentication, it must have the "Configuration of agents" permission.'
+    required: true
+  agentTag:
+    description: 'The host agent tag to match.'
+    required: true
+# outputs:
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.agentTag }}
