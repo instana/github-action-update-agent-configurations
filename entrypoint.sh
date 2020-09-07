@@ -5,8 +5,8 @@ if [ -z "${INSTANA_API_ENDPOINT}" ]; then
     exit 3
 fi
 
-if [ -z "${INSTANA_API_KEY}" ]; then
-    echo "The required 'INSTANA_API_KEY' environment variable is not set"
+if [ -z "${INSTANA_API_TOKEN}" ]; then
+    echo "The required 'INSTANA_API_TOKEN' environment variable is not set"
     exit 3
 fi
 
@@ -37,7 +37,7 @@ if RESPONSE=$(curl \
     --silent \
     --fail \
     --request POST \
-    --header "authorization: apiToken ${INSTANA_API_KEY}" \
+    --header "authorization: apiToken ${INSTANA_API_TOKEN}" \
     --write-out "%{http_code}" \
     "${INSTANA_API_ENDPOINT}/api/host-agent/configuration?query=${query// /%20}")
 then

@@ -10,7 +10,7 @@ The selection of which agents to update is based on a combination of agent zone 
 Set the following variables as secrets for your repository:
 
 - `INSTANA_API_ENDPOINT`: The API endpoint of your Instana backend, e.g., `https://my-awesome.instana.io`. Notice that, for self-managed Instana backends, you will likely need to set in the the port, e.g., `https://instana.acme.org:1444`.
-- `INSTANA_API_KEY`: The API token to use for authentication; it _must_ have the `Configuration of agents` permission.
+- `INSTANA_API_TOKEN`: The API token to use for authentication; it _must_ have the `Configuration of agents` permission.
 
 ### Inputs
 
@@ -42,7 +42,7 @@ jobs:
         agent_tags: 'gitops_environment=prod,team=awesome'
       env:
         INSTANA_API_ENDPOINT: ${{ secrets.INSTANA_API_ENDPOINT }}
-        INSTANA_API_KEY: ${{ secrets.INSTANA_API_KEY }}
+        INSTANA_API_TOKEN: ${{ secrets.INSTANA_API_TOKEN }}
 ```
 
 ### Using only Host agent Tags
@@ -57,7 +57,7 @@ jobs:
         agent_tags: 'gitops_environment=prod,team=awesome'
       env:
         INSTANA_API_ENDPOINT: ${{ secrets.INSTANA_API_ENDPOINT }}
-        INSTANA_API_KEY: ${{ secrets.INSTANA_API_KEY }}
+        INSTANA_API_TOKEN: ${{ secrets.INSTANA_API_TOKEN }}
 ```
 
 ### Using only Host agent Zone
@@ -72,5 +72,5 @@ jobs:
         agent_zone: 'prod_emea'
       env:
         INSTANA_API_ENDPOINT: ${{ secrets.INSTANA_API_ENDPOINT }}
-        INSTANA_API_KEY: ${{ secrets.INSTANA_API_KEY }}
+        INSTANA_API_TOKEN: ${{ secrets.INSTANA_API_TOKEN }}
 ```
