@@ -13,7 +13,10 @@ Set the following variables as secrets for your repository:
 
 ### Inputs
 
-- `agentKey`: The host agent tag to match; refer to the [Specify Host Tags](https://www.instana.com/docs/setup_and_manage/host_agent/configuration#specify-host-tags) documentation for more info on how to set up host tags in Instana.
+Either or both of the following parameters
+
+- `agent_zone`: The host agent zone to match
+- `agent_tags`: A comma-separated list of host agent tag to match; refer to the [Specify Host Tags](https://www.instana.com/docs/setup_and_manage/host_agent/configuration#specify-host-tags) documentation for more info on how to set up host tags in Instana.
 
 ### Outputs
 
@@ -21,10 +24,35 @@ None
 
 ## Example usage
 
+### Using both Host agent Tags and Zone
+
 ```yaml
-uses: mmanciop/instana-gitops-trigger-agent-update@v1
+uses: instana/github-action-instana-gitops-update-configurations@v1
 with:
-  agentTag: 'gitops_environment=prod'
+  agent_zone: 'prod_emea'
+  agent_tags: 'gitops_environment=prod,team=awesome'
+env:
+  INSTANA_API_ENDPOINT: ${{ secrets.INSTANA_API_ENDPOINT }}
+  INSTANA_API_KEY: ${{ secrets.INSTANA_API_KEY }}
+```
+
+### Using only Host agent Tags
+
+```yaml
+uses: instana/github-action-instana-gitops-update-configurations@v1
+with:
+  agent_tags: 'gitops_environment=prod,team=awesome'
+env:
+  INSTANA_API_ENDPOINT: ${{ secrets.INSTANA_API_ENDPOINT }}
+  INSTANA_API_KEY: ${{ secrets.INSTANA_API_KEY }}
+```
+
+### Using only Host agent Zone
+
+```yaml
+uses: instana/github-action-instana-gitops-update-configurations@v1
+with:
+  agent_zone: 'prod_emea'
 env:
   INSTANA_API_ENDPOINT: ${{ secrets.INSTANA_API_ENDPOINT }}
   INSTANA_API_KEY: ${{ secrets.INSTANA_API_KEY }}
