@@ -1,4 +1,4 @@
-#!/bin/bash -le
+#!/bin/bash -lex
 
 if [ -z "${INSTANA_API_ENDPOINT}" ]; then
     echo "The required 'INSTANA_API_ENDPOINT' environment variable is not set"
