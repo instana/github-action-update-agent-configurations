@@ -36,7 +36,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: instana/github-action-instana-gitops-update-configurations@v1.0.0
+    - uses: instana/github-action-update-agent-configurations@v1.0.0
       with:
         agent_zone: 'prod_emea'
         agent_tags: 'gitops_environment=prod,team=awesome'
@@ -52,7 +52,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: instana/github-action-instana-gitops-update-configurations@v1.0.0
+    - uses: instana/github-action-update-agent-configurations@v1.0.0
       with:
         agent_tags: 'gitops_environment=prod,team=awesome'
       env:
@@ -67,7 +67,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: instana/github-action-instana-gitops-update-configurations@v1.0.0
+    - uses: instana/github-action-update-agent-configurations@v1.0.0
       with:
         agent_zone: 'prod_emea'
       env:
