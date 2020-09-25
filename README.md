@@ -1,4 +1,4 @@
-# Github Action for triggering the configuration update of Instana host agents
+# Instana GitHub action for GitOps
 
 This GitHub action remotely triggers the update of the configuration of Instana host agents that are configured to use the [Git-based Configuration Management](https://www.instana.com/docs/setup_and_manage/host_agent/configuration/git_ops) capability.
 The selection of which agents to update is based on a combination of agent zone and tags.
